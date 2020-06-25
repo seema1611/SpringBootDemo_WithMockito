@@ -38,4 +38,11 @@ class MockitodemoApplicationTests {
         System.out.println(user.getId());
         assertEquals(user, userService.addUser(user));
     }
+
+    @Test
+    public void getUserbyAddressTest() {
+        String address = "Pune";
+        when(userRepository.findByAddress(address)).thenReturn(Collections.singletonList((new User(1, "Hema", 20, "Pune"))));
+        Assert.assertEquals(1, userService.getUserbyAddress(address).size());
+    }
 }
