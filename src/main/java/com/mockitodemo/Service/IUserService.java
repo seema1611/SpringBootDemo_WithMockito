@@ -7,4 +7,5 @@ import java.util.List;
 public interface IUserService {
     User addUser(User user);
     List<User> getUsers();
+    List<User> getUserbyAddress(String address);
 }

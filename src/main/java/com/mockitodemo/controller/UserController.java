@@ -30,5 +30,10 @@ public class UserController {
     public List<User> findAllUsers() {
         return userService.getUsers();
     }
+
+    @GetMapping("/getUserByAddress/{address}")
+    public List<User> findUserByAddress(@PathVariable String address) {
+        return userService.getUserbyAddress(address);
+    }
 }
 
