@@ -1,5 +1,6 @@
 package com.mockitodemo;
 
+import com.mockitodemo.Service.implementors.UserService;
 import com.mockitodemo.model.User;
 import com.mockitodemo.repository.UserRepository;
 import org.junit.Assert;
@@ -20,28 +21,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class MockitodemoApplicationTests {
 
-    @Autowired
-    UserService userService;
-
-    @MockBean
-    UserRepository userRepository;
-
     @Test
     void contextLoads() {
-    }
-
-    @Test
-    public void saveUserTest() {
-        User user = new User(3, "Amol", 30, "Pune");
-        when(userRepository.save(user)).thenReturn(user);
-        System.out.println(user.getId());
-        assertEquals(user, userService.addUser(user));
-    }
-
-    @Test
-    public void getUserbyAddressTest() {
-        String address = "Pune";
-        when(userRepository.findByAddress(address)).thenReturn(Collections.singletonList((new User(1, "Hema", 20, "Pune"))));
-        Assert.assertEquals(1, userService.getUserbyAddress(address).size());
     }
 }

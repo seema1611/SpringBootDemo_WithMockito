@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -23,6 +24,11 @@ public class UserController {
         user.setAge(age);
         user.setAddress(address);
         return userService.addUser(user);
+    }
+
+    @GetMapping("/getUsers")
+    public List<User> findAllUsers() {
+        return userService.getUsers();
     }
 }
 

@@ -15,8 +15,14 @@ public class UserService implements IUserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Override
+
     public User addUser(User user) {
         return userRepository.save(user);
+    }
+
+    public List<User> getUsers() {
+        List<User> users = userRepository.findAll();
+        System.out.println("Getting data from DB : " + users);
+        return users;
     }
 }
